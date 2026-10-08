@@ -35,31 +35,14 @@ using umci = unordered_map<char, int>;
 void solve() {
   ll a, b;
   cin >> a >> b;
-
-  if (a % 2 != 0 && b % 2 != 0) {
-    cout << "No\n";
-    return;
+  bool flg = false;
+  if (a % 2 == 0 && a / 2 != b) {
+    flg = true;
   }
-
-  bool isPos = false;
-
-  if (a % 2 == 0) {
-    ll nA = a / 2;
-    ll nB = b;
-    if (nA * 2 != b || nB != a) {
-      isPos = true;
-    }
+  if (b % 2 == 0 && b / 2 != a) {
+    flg = true;
   }
-
-  if (b % 2 == 0) {
-    ll nA = a;
-    ll nB = b / 2;
-    if (nB * 2 != a || nA != b) {
-      isPos = true;
-    }
-  }
-
-  if (isPos) {
+  if (flg) {
     cout << "Yes\n";
   } else {
     cout << "No\n";
